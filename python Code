@@ -33,9 +33,9 @@ if __name__=="__main__":
 
     main()
     
-restart=input("Would you like to translate another text y/n?:")
+restart=input("Would you like to translate another text yes/no?:")
 
-if restart=="y":
+if restart=="yes":
 
     main()
     
