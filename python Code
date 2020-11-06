@@ -1,45 +1,18 @@
-def vowel(word):
+user_input = input("Enter word to be translated:")
+vowels = ['a','e','i','o','u']
+def translate(user_input): 
+    first = user_input[0]
+    if first in vowels: 
+         user_input = user_input.lower()
+         user_input += "way" 
+         return user_input
+    else: 
+        user_input = user_input.lower()
+        for letter in user_input:
+            if letter in vowels:
+                index_value = user_input.index(letter)
+                break
+        user_input = user_input[index_value:] +user_input[:index_value]+ "ay" 
+        return user_input 
 
-    index =0
-    while (word[index]not in["a","e","i","o","u","A","E","I","O","U"]):
-        index=index+1
-    return word[index:]+word[0:index]+"ay"
-
-def constant(word):
-
-    return word+"way"
-
-def main():
-
-    text = input("Please enter the text you would like to translate:")
-
-    splitText = text.split(" ")
-
-    pigLatinText =""
-
-    for word in splitText:
-
-        if(word[0]in["a","e","i","o","u","A","E","I","O","U"]):
-
-            pigLatinText+=vowel(word)+" "
-
-        else:
-
-            pigLatinText+=consonant(word)+" "
-
-        print(pigLatinText[:-1])
-
-if __name__=="__main__":
-
-    main()
-    
-restart=input("Would you like to translate another text yes/no?:")
-
-if restart=="yes":
-
-    main()
-    
-else:
-    exit()
-
-    main()
+print(translate(user_input))
